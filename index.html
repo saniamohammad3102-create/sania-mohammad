@@ -7,336 +7,99 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --navy: #0B1F3A;
-    --navy-mid: #132844;
-    --gold: #C9A84C;
-    --gold-light: #E2C97E;
-    --cream: #F5F0E8;
-    --cream-dark: #EDE6D8;
-    --text: #1A1A2E;
-    --muted: #5C6070;
-    --white: #FFFFFF;
+    --navy: #0B1F3A; --navy-mid: #132844; --gold: #C9A84C;
+    --gold-light: #E2C97E; --cream: #F5F0E8; --cream-dark: #EDE6D8;
+    --text: #1A1A2E; --muted: #5C6070; --white: #FFFFFF;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 1.2rem 4rem;
-    background: rgba(11, 31, 58, 0.97);
-    backdrop-filter: blur(8px);
+    padding: 1.2rem 4rem; background: rgba(11,31,58,0.97); backdrop-filter: blur(8px);
   }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em;
-    color: var(--gold); text-decoration: none;
-  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.08em; color: var(--gold); text-decoration: none; }
   .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
-    text-transform: uppercase; color: rgba(255,255,255,0.7);
-    text-decoration: none; transition: color 0.2s;
-  }
+  .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold-light); }
-
-  /* ── HERO ── */
   #hero {
-    min-height: 100vh;
-    background: var(--navy);
+    min-height: 100vh; background: var(--navy);
     display: flex; flex-direction: column; justify-content: center;
-    padding: 8rem 4rem 5rem;
-    position: relative; overflow: hidden;
+    padding: 8rem 4rem 5rem; position: relative; overflow: hidden;
   }
-  #hero::before {
-    content: '';
-    position: absolute; top: -120px; right: -80px;
-    width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  #hero::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-  .hero-eyebrow {
-    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem;
-    opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
-  }
-  .hero-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300; line-height: 1.0;
-    color: var(--white); margin-bottom: 0.3rem;
-    opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
-  }
-  .hero-name em {
-    font-style: italic; color: var(--gold-light);
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 300;
-    color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; letter-spacing: 0.03em;
-    opacity: 0; animation: fadeUp 0.7s 0.55s forwards;
-  }
-  .hero-badges {
-    display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 3rem;
-    opacity: 0; animation: fadeUp 0.7s 0.7s forwards;
-  }
-  .badge {
-    padding: 0.4rem 1rem; border: 1px solid rgba(201,168,76,0.4);
-    border-radius: 2px; font-size: 0.72rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--gold-light); background: rgba(201,168,76,0.06);
-  }
-  .hero-contact {
-    display: flex; flex-wrap: wrap; gap: 1.5rem;
-    opacity: 0; animation: fadeUp 0.7s 0.85s forwards;
-  }
-  .hero-contact a {
-    font-size: 0.82rem; color: rgba(255,255,255,0.5);
-    text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
-    transition: color 0.2s;
-  }
+  #hero::before { content: ''; position: absolute; top: -120px; right: -80px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events: none; }
+  #hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.7s 0.2s forwards; }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300; line-height: 1.0; color: var(--white); margin-bottom: 0.3rem; opacity: 0; animation: fadeUp 0.7s 0.4s forwards; }
+  .hero-name em { font-style: italic; color: var(--gold-light); }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 300; color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; letter-spacing: 0.03em; opacity: 0; animation: fadeUp 0.7s 0.55s forwards; }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.7s 0.7s forwards; }
+  .badge { padding: 0.4rem 1rem; border: 1px solid rgba(201,168,76,0.4); border-radius: 2px; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); background: rgba(201,168,76,0.06); }
+  .hero-contact { display: flex; flex-wrap: wrap; gap: 1.5rem; opacity: 0; animation: fadeUp 0.7s 0.85s forwards; }
+  .hero-contact a { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
   .hero-contact a:hover { color: var(--gold-light); }
-  .hero-contact a span { font-size: 1rem; }
-
-  /* ── SECTION BASE ── */
-  section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-  .section-label::after {
-    content: ''; flex: 0 0 40px; height: 1px; background: var(--gold);
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.15;
-    color: var(--navy); margin-bottom: 2.5rem;
-  }
-
-  /* ── QUICK SUMMARY ── */
-  #summary { background: var(--cream); }
-  .summary-grid {
-    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;
-  }
-  .summary-card {
-    background: var(--white); border-top: 3px solid var(--gold);
-    padding: 1.8rem; position: relative;
-  }
-  .summary-card h3 {
-    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 0.7rem;
-  }
-  .summary-card p {
-    font-size: 0.92rem; line-height: 1.65; color: var(--text);
-  }
-  .summary-stat {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem; font-weight: 300; color: var(--navy);
-    line-height: 1; margin-bottom: 0.3rem;
-  }
+  .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
+  .section-label::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.15; color: var(--navy); margin-bottom: 2.5rem; }
+  .summary-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+  .summary-card { background: var(--white); border-top: 3px solid var(--gold); padding: 1.8rem; }
+  .summary-card h3 { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; }
+  .summary-card p { font-size: 0.92rem; line-height: 1.65; color: var(--text); }
+  .summary-stat { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--navy); line-height: 1; margin-bottom: 0.3rem; }
   .summary-stat span { font-size: 1rem; color: var(--gold); }
-
-  /* ── WHO AM I ── */
-  #who {
-    background: var(--navy);
-    max-width: 100%; padding: 6rem 0;
-  }
-  .who-inner {
-    max-width: 1100px; margin: 0 auto;
-    padding: 0 4rem;
-    display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center;
-  }
-  #who .section-label { color: var(--gold-light); }
-  #who .section-label::after { background: var(--gold-light); }
-  #who .section-title { color: var(--white); }
-  .who-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-style: italic; font-weight: 300;
-    color: var(--gold-light); line-height: 1.5; margin-bottom: 1.5rem;
-  }
+  .who-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center; }
+  .who-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; font-weight: 300; color: var(--gold-light); line-height: 1.5; margin-bottom: 1.5rem; }
   .who-body { font-size: 0.95rem; line-height: 1.85; color: rgba(255,255,255,0.72); }
   .who-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
-  .who-tag {
-    padding: 0.35rem 0.9rem; background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.25); border-radius: 2px;
-    font-size: 0.72rem; color: var(--gold-light); letter-spacing: 0.08em;
-  }
-
-  /* ── USP ── */
-  #usp { background: var(--cream); }
+  .who-tag { padding: 0.35rem 0.9rem; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); border-radius: 2px; font-size: 0.72rem; color: var(--gold-light); letter-spacing: 0.08em; }
   .usp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .usp-item {
-    padding: 2rem; background: var(--cream-dark);
-    border-left: 3px solid var(--gold); position: relative;
-  }
-  .usp-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem; font-weight: 300; color: rgba(201,168,76,0.2);
-    position: absolute; top: 1rem; right: 1.2rem; line-height: 1;
-  }
-  .usp-item h3 {
-    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
-    color: var(--navy); margin-bottom: 0.7rem; text-transform: uppercase;
-  }
+  .usp-item { padding: 2rem; background: var(--cream-dark); border-left: 3px solid var(--gold); position: relative; }
+  .usp-number { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(201,168,76,0.2); position: absolute; top: 1rem; right: 1.2rem; line-height: 1; }
+  .usp-item h3 { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; color: var(--navy); margin-bottom: 0.7rem; text-transform: uppercase; }
   .usp-item p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
-
-  /* ── PROFILE FIT ── */
-  #fit {
-    background: var(--cream-dark); max-width: 100%; padding: 6rem 0;
-  }
   .fit-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
   .fit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
-  .fit-card {
-    background: var(--white); padding: 1.8rem;
-    border-bottom: 3px solid transparent; transition: border-color 0.3s, transform 0.3s;
-  }
+  .fit-card { background: var(--white); padding: 1.8rem; border-bottom: 3px solid transparent; transition: border-color 0.3s, transform 0.3s; }
   .fit-card:hover { border-color: var(--gold); transform: translateY(-4px); }
   .fit-icon { font-size: 1.6rem; margin-bottom: 1rem; }
-  .fit-card h3 {
-    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--navy); margin-bottom: 0.6rem;
-  }
+  .fit-card h3 { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.6rem; }
   .fit-card p { font-size: 0.87rem; line-height: 1.7; color: var(--muted); }
-
-  /* ── EXPERIENCE ── */
-  #experience { background: var(--cream); }
   .exp-block { margin-bottom: 4rem; }
-  .exp-header {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    padding-bottom: 1rem; border-bottom: 1px solid var(--cream-dark);
-    margin-bottom: 2rem; flex-wrap: wrap; gap: 0.5rem;
-  }
-  .exp-company {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-weight: 400; color: var(--navy);
-  }
-  .exp-role {
-    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--gold); margin-top: 0.2rem;
-  }
-  .exp-date {
-    font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
-  .exp-tabs {
-    display: flex; gap: 0; margin-bottom: 1.8rem; border-bottom: 2px solid var(--cream-dark);
-  }
-  .tab-btn {
-    padding: 0.6rem 1.2rem; font-size: 0.74rem; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase; background: none; border: none;
-    color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent;
-    margin-bottom: -2px; transition: color 0.2s, border-color 0.2s;
-  }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid var(--cream-dark); margin-bottom: 2rem; flex-wrap: wrap; gap: 0.5rem; }
+  .exp-company { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--navy); }
+  .exp-role { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-top: 0.2rem; }
+  .exp-date { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em; white-space: nowrap; }
+  .exp-tabs { display: flex; margin-bottom: 1.8rem; border-bottom: 2px solid var(--cream-dark); flex-wrap: wrap; }
+  .tab-btn { padding: 0.6rem 1.2rem; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: none; border: none; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color 0.2s, border-color 0.2s; }
   .tab-btn.active { color: var(--navy); border-color: var(--gold); }
   .tab-content { display: none; }
-  .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+  .tab-content.active { display: block; }
   .exp-list { list-style: none; }
-  .exp-list li {
-    padding: 0.6rem 0 0.6rem 1.4rem; position: relative;
-    font-size: 0.9rem; line-height: 1.7; color: var(--text);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-  .exp-list li::before {
-    content: ''; position: absolute; left: 0; top: 1.05rem;
-    width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
-  }
+  .exp-list li { padding: 0.6rem 0 0.6rem 1.4rem; position: relative; font-size: 0.9rem; line-height: 1.7; color: var(--text); border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .exp-list li::before { content: ''; position: absolute; left: 0; top: 1.05rem; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
   .skill-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-  .skill-chip {
-    padding: 0.3rem 0.8rem; background: var(--cream-dark);
-    border-radius: 2px; font-size: 0.72rem; color: var(--navy); letter-spacing: 0.05em;
-  }
-
-  /* ── PROJECTS ── */
-  #projects {
-    background: var(--navy); max-width: 100%; padding: 6rem 0;
-  }
+  .skill-chip { padding: 0.3rem 0.8rem; background: var(--cream-dark); border-radius: 2px; font-size: 0.72rem; color: var(--navy); letter-spacing: 0.05em; }
   .proj-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
-  #projects .section-label { color: var(--gold-light); }
-  #projects .section-label::after { background: var(--gold-light); }
-  #projects .section-title { color: var(--white); }
-  .project-card {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-    padding: 2.5rem; margin-bottom: 2rem; position: relative; overflow: hidden;
-    transition: background 0.3s;
-  }
+  .project-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; margin-bottom: 2rem; position: relative; overflow: hidden; transition: background 0.3s; }
   .project-card:hover { background: rgba(201,168,76,0.05); }
-  .project-card::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-    background: var(--gold);
-  }
-  .proj-label {
-    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 0.6rem;
-  }
-  .proj-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem; font-weight: 400; color: var(--white); margin-bottom: 1.5rem;
-  }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gold); }
+  .proj-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  .proj-title { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--white); margin-bottom: 1.5rem; }
   .proj-sections { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
-  .proj-section h4 {
-    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gold-light); margin-bottom: 0.6rem; padding-bottom: 0.4rem;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-  }
+  .proj-section h4 { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
   .proj-section p { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.65); }
   .proj-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
-  .proj-tag {
-    padding: 0.25rem 0.7rem; background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.2); border-radius: 2px;
-    font-size: 0.68rem; color: var(--gold-light); letter-spacing: 0.06em;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #070F1E; padding: 3rem 4rem;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .footer-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem; color: var(--gold); letter-spacing: 0.06em;
-  }
+  .proj-tag { padding: 0.25rem 0.7rem; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); border-radius: 2px; font-size: 0.68rem; color: var(--gold-light); letter-spacing: 0.06em; }
+  footer { background: #070F1E; padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold); letter-spacing: 0.06em; }
   .footer-links { display: flex; gap: 2rem; }
-  .footer-links a {
-    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s;
-  }
+  .footer-links a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold-light); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; } to { opacity: 1; }
-  }
-  .reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* ── RESPONSIVE ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
+    nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
     #hero { padding: 7rem 1.5rem 4rem; }
-    section { padding: 4rem 1.5rem; }
     .who-inner, .fit-inner, .proj-inner { padding: 0 1.5rem; }
     .summary-grid, .usp-grid, .fit-grid, .proj-sections { grid-template-columns: 1fr; }
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
@@ -345,7 +108,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#hero">Sania Mohammad</a>
   <ul class="nav-links">
@@ -358,7 +120,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <p class="hero-eyebrow">Finance & Accounting Portfolio</p>
   <h1 class="hero-name">Sania <em>Mohammad</em></h1>
@@ -371,352 +132,214 @@
     <span class="badge">Stamp 1G · Dublin</span>
   </div>
   <div class="hero-contact">
-    <a href="/cdn-cgi/l/email-protection#1162707f78707c7e79707c7c70752220212351767c70787d3f727e7c"><span>✉</span> <span class="__cf_email__" data-cfemail="0271636c6b636f6d6a636f6f63663133323042656f636b6e2c616d6f">[email&#160;protected]</span></a>
+    <a href="mailto:saniamohammad3102@gmail.com"><span>✉</span> saniamohammad3102@gmail.com</a>
     <a href="tel:+353894841347"><span>📞</span> +353 89 484 1347</a>
     <a href="https://www.linkedin.com/in/sania-mohammad/" target="_blank"><span>🔗</span> LinkedIn Profile</a>
     <a href="#"><span>📍</span> Dublin, Ireland</a>
   </div>
 </section>
 
-<!-- QUICK SUMMARY -->
-<div id="summary" style="background:var(--cream); padding: 6rem 4rem;">
-<div style="max-width:1100px; margin:0 auto;">
-  <p class="section-label reveal">01 — Quick Summary</p>
-  <h2 class="section-title reveal">At a glance</h2>
-  <div class="summary-grid reveal">
-    <div class="summary-card">
-      <h3>Who She Is</h3>
-      <p>An ACCA candidate with real Irish practice experience in financial reporting, bookkeeping, and tax compliance — combining an MSc from DCU with a structured path to full qualification.</p>
-    </div>
-    <div class="summary-card">
-      <h3>Budgets Managed</h3>
-      <div class="summary-stat">€130K<span>+</span></div>
-      <p>Across 80+ projects as VP at Street Cause, with full accountability and governance controls.</p>
-    </div>
-    <div class="summary-card">
-      <h3>Investor Research</h3>
-      <div class="summary-stat">269<span>+</span></div>
-      <p>Investors analysed across 4 global regions to support a €20M Series A fundraising strategy.</p>
-    </div>
-    <div class="summary-card">
-      <h3>ACCA Progress</h3>
-      <div class="summary-stat">5<span>/13</span></div>
-      <p>Currently preparing F8 (Audit) & F9 (Financial Management) — on a structured path to full qualification.</p>
-    </div>
-    <div class="summary-card">
-      <h3>Tools & Software</h3>
-      <p>Proficient in <strong>Dext</strong> and <strong>BrightBooks</strong> for Irish practice, <strong>Tableau</strong> for data visualisation, and the full <strong>Microsoft Office 365</strong> suite.</p>
-    </div>
-    <div class="summary-card">
-      <h3>Fundraising Led</h3>
-      <div class="summary-stat">€25K<span>+</span></div>
-      <p>Generated in 3 months leading fundraising efforts as Chairperson of Hyderabad Youth Assembly.</p>
-    </div>
+<div id="summary" style="background:var(--cream); padding:6rem 4rem;">
+<div style="max-width:1100px;margin:0 auto;">
+  <p class="section-label">01 — Quick Summary</p>
+  <h2 class="section-title">At a glance</h2>
+  <div class="summary-grid">
+    <div class="summary-card"><h3>Who She Is</h3><p>An ACCA candidate with real Irish practice experience in financial reporting, bookkeeping, and tax compliance — combining an MSc from DCU with a structured path to full qualification.</p></div>
+    <div class="summary-card"><h3>Budgets Managed</h3><div class="summary-stat">€130K<span>+</span></div><p>Across 80+ projects as VP at Street Cause, with full accountability and governance controls.</p></div>
+    <div class="summary-card"><h3>Investor Research</h3><div class="summary-stat">269<span>+</span></div><p>Investors analysed across 4 global regions to support a €20M Series A fundraising strategy.</p></div>
+    <div class="summary-card"><h3>ACCA Progress</h3><div class="summary-stat">5<span>/13</span></div><p>Currently preparing F8 (Audit) & F9 (Financial Management) — on a structured path to full qualification.</p></div>
+    <div class="summary-card"><h3>Tools & Software</h3><p>Proficient in <strong>Dext</strong> and <strong>BrightBooks</strong> for Irish practice, <strong>Tableau</strong> for data visualisation, and the full <strong>Microsoft Office 365</strong> suite.</p></div>
+    <div class="summary-card"><h3>Fundraising Led</h3><div class="summary-stat">€25K<span>+</span></div><p>Generated in 3 months leading fundraising efforts as Chairperson of Hyderabad Youth Assembly.</p></div>
   </div>
 </div>
 </div>
 
-<!-- WHO AM I -->
-<div id="who" style="background:var(--navy); padding: 6rem 0;">
+<div id="who" style="background:var(--navy);padding:6rem 0;">
 <div class="who-inner">
   <div>
-    <p class="section-label reveal">02 — Who Am I</p>
-    <h2 class="section-title reveal" style="color:var(--white);">More than<br>the numbers</h2>
-    <p class="who-quote reveal">"Detail-oriented by nature, commercially aware by experience."</p>
+    <p class="section-label" style="color:var(--gold-light);">02 — Who Am I</p>
+    <h2 class="section-title" style="color:var(--white);">More than<br>the numbers</h2>
+    <p class="who-quote">"Detail-oriented by nature, commercially aware by experience."</p>
   </div>
   <div>
-    <p class="who-body reveal">I'm Sania — an ACCA candidate and MSc graduate from Dublin City University, building a career at the intersection of accounting, financial reporting, and client-facing finance. My journey spans continents: from managing large-scale budgets and leading youth organisations in Hyderabad, to gaining hands-on Irish practice experience at FintechPro Dublin under a senior FCCA partner.</p>
-    <p class="who-body reveal" style="margin-top:1.2rem;">What drives me is a genuine curiosity for how businesses work financially — not just recording transactions, but understanding what the numbers mean and how they guide decisions. I bring an international perspective sharpened by Irish regulatory exposure, and I'm committed to earning full ACCA qualification while contributing meaningfully at every stage.</p>
-    <div class="who-tags reveal">
-      <span class="who-tag">Irish Tax Compliance</span>
-      <span class="who-tag">General Ledger</span>
-      <span class="who-tag">Client Relations</span>
-      <span class="who-tag">Data Analysis</span>
-      <span class="who-tag">Financial Reporting</span>
-      <span class="who-tag">Tableau</span>
-      <span class="who-tag">Bank Reconciliation</span>
-      <span class="who-tag">Investor Research</span>
+    <p class="who-body">I'm Sania — an ACCA candidate and MSc graduate from Dublin City University, building a career at the intersection of accounting, financial reporting, and client-facing finance. My journey spans continents: from managing large-scale budgets and leading youth organisations in Hyderabad, to gaining hands-on Irish practice experience at FintechPro Dublin under a senior FCCA partner.</p>
+    <p class="who-body" style="margin-top:1.2rem;">What drives me is a genuine curiosity for how businesses work financially — not just recording transactions, but understanding what the numbers mean and how they guide decisions. I bring an international perspective sharpened by Irish regulatory exposure, and I'm committed to earning full ACCA qualification while contributing meaningfully at every stage.</p>
+    <div class="who-tags">
+      <span class="who-tag">Irish Tax Compliance</span><span class="who-tag">General Ledger</span>
+      <span class="who-tag">Client Relations</span><span class="who-tag">Data Analysis</span>
+      <span class="who-tag">Financial Reporting</span><span class="who-tag">Tableau</span>
+      <span class="who-tag">Bank Reconciliation</span><span class="who-tag">Investor Research</span>
     </div>
   </div>
 </div>
 </div>
 
-<!-- USP -->
-<div id="usp" style="background:var(--cream); padding: 6rem 4rem;">
-<div style="max-width:1100px; margin:0 auto;">
-  <p class="section-label reveal">03 — My USP</p>
-  <h2 class="section-title reveal">What sets me apart</h2>
-  <div class="usp-grid reveal">
-    <div class="usp-item">
-      <div class="usp-number">01</div>
-      <h3>Irish Practice, From Day One</h3>
-      <p>Unlike many entry-level candidates, I've already worked inside an Irish accounting practice — filing Form 11 & 12, managing multi-client ledgers, and operating Dext and BrightBooks in a live environment under FCCA supervision.</p>
-    </div>
-    <div class="usp-item">
-      <div class="usp-number">02</div>
-      <h3>ACCA — Structured & Progressing</h3>
-      <p>With 5 exams completed and F8 & F9 in preparation, I'm not starting ACCA — I'm advancing through it. This signals commitment, technical rigour, and a clear professional trajectory that sets me apart from candidates still at the start.</p>
-    </div>
-    <div class="usp-item">
-      <div class="usp-number">03</div>
-      <h3>International + Local Intelligence</h3>
-      <p>My BCom in International Business combined with an MSc from DCU and hands-on Dublin experience gives me a rare dual lens — I understand global business dynamics while applying Irish-specific regulatory and compliance knowledge.</p>
-    </div>
-    <div class="usp-item">
-      <div class="usp-number">04</div>
-      <h3>Leadership at Scale, Early Career</h3>
-      <p>Managing €130K+ budgets across 80+ projects and leading a 150-member organisation before turning 25 demonstrates financial accountability, stakeholder management, and decision-support capabilities well beyond entry level.</p>
-    </div>
+<div id="usp" style="background:var(--cream);padding:6rem 4rem;">
+<div style="max-width:1100px;margin:0 auto;">
+  <p class="section-label">03 — My USP</p>
+  <h2 class="section-title">What sets me apart</h2>
+  <div class="usp-grid">
+    <div class="usp-item"><div class="usp-number">01</div><h3>Irish Practice, From Day One</h3><p>Unlike many entry-level candidates, I've already worked inside an Irish accounting practice — filing Form 11 & 12, managing multi-client ledgers, and operating Dext and BrightBooks in a live environment under FCCA supervision.</p></div>
+    <div class="usp-item"><div class="usp-number">02</div><h3>ACCA — Structured & Progressing</h3><p>With 5 exams completed and F8 & F9 in preparation, I'm not starting ACCA — I'm advancing through it. This signals commitment, technical rigour, and a clear professional trajectory that sets me apart from candidates still at the start.</p></div>
+    <div class="usp-item"><div class="usp-number">03</div><h3>International + Local Intelligence</h3><p>My BCom in International Business combined with an MSc from DCU and hands-on Dublin experience gives me a rare dual lens — I understand global business dynamics while applying Irish-specific regulatory and compliance knowledge.</p></div>
+    <div class="usp-item"><div class="usp-number">04</div><h3>Leadership at Scale, Early Career</h3><p>Managing €130K+ budgets across 80+ projects and leading a 150-member organisation before turning 25 demonstrates financial accountability, stakeholder management, and decision-support capabilities well beyond entry level.</p></div>
   </div>
 </div>
 </div>
 
-<!-- PROFILE FIT -->
-<div id="fit" style="background:var(--cream-dark); padding: 6rem 0;">
+<div id="fit" style="background:var(--cream-dark);padding:6rem 0;">
 <div class="fit-inner">
-  <p class="section-label reveal">04 — Profile Fit</p>
-  <h2 class="section-title reveal">Where I thrive</h2>
-  <div class="fit-grid reveal">
-    <div class="fit-card">
-      <div class="fit-icon">📋</div>
-      <h3>Accounting Practices</h3>
-      <p>Directly experienced in Irish practice workflows — bookkeeping, tax returns, client accounts — and familiar with the pace and expectations of a multi-client accounting environment.</p>
-    </div>
-    <div class="fit-card">
-      <div class="fit-icon">📊</div>
-      <h3>Finance & Reporting Teams</h3>
-      <p>Comfortable preparing management accounts, financial summaries, and stakeholder reports. I translate numbers into clear, decision-ready narratives for leadership.</p>
-    </div>
-    <div class="fit-card">
-      <div class="fit-icon">💼</div>
-      <h3>Trainee & Graduate Roles</h3>
-      <p>Perfectly positioned for structured finance trainee programmes — bringing real experience, ACCA progression, and the adaptability of someone who has worked across cultures and contexts.</p>
-    </div>
-    <div class="fit-card">
-      <div class="fit-icon">🔍</div>
-      <h3>Research & Analysis Roles</h3>
-      <p>Experienced in financial data segmentation, investor research, and Tableau dashboards. I can turn large datasets into structured insights and strategic recommendations.</p>
-    </div>
-    <div class="fit-card">
-      <div class="fit-icon">🌍</div>
-      <h3>International Business Teams</h3>
-      <p>My international education, multicultural leadership background, and MSc in Global Management make me well-suited to teams operating across geographies or managing cross-border finance.</p>
-    </div>
-    <div class="fit-card">
-      <div class="fit-icon">🤝</div>
-      <h3>Client-Facing Finance Functions</h3>
-      <p>Proven ability to liaise directly with clients to gather financial data, resolve queries, and maintain trust — bringing professionalism and clarity to sensitive financial conversations.</p>
-    </div>
+  <p class="section-label">04 — Profile Fit</p>
+  <h2 class="section-title">Where I thrive</h2>
+  <div class="fit-grid">
+    <div class="fit-card"><div class="fit-icon">📋</div><h3>Accounting Practices</h3><p>Directly experienced in Irish practice workflows — bookkeeping, tax returns, client accounts — and familiar with the pace and expectations of a multi-client accounting environment.</p></div>
+    <div class="fit-card"><div class="fit-icon">📊</div><h3>Finance & Reporting Teams</h3><p>Comfortable preparing management accounts, financial summaries, and stakeholder reports. I translate numbers into clear, decision-ready narratives for leadership.</p></div>
+    <div class="fit-card"><div class="fit-icon">💼</div><h3>Trainee & Graduate Roles</h3><p>Perfectly positioned for structured finance trainee programmes — bringing real experience, ACCA progression, and the adaptability of someone who has worked across cultures and contexts.</p></div>
+    <div class="fit-card"><div class="fit-icon">🔍</div><h3>Research & Analysis Roles</h3><p>Experienced in financial data segmentation, investor research, and Tableau dashboards. I can turn large datasets into structured insights and strategic recommendations.</p></div>
+    <div class="fit-card"><div class="fit-icon">🌍</div><h3>International Business Teams</h3><p>My international education, multicultural leadership background, and MSc in Global Management make me well-suited to teams operating across geographies or managing cross-border finance.</p></div>
+    <div class="fit-card"><div class="fit-icon">🤝</div><h3>Client-Facing Finance Functions</h3><p>Proven ability to liaise directly with clients to gather financial data, resolve queries, and maintain trust — bringing professionalism and clarity to sensitive financial conversations.</p></div>
   </div>
 </div>
 </div>
 
-<!-- EXPERIENCE -->
-<div id="experience" style="background:var(--cream); padding: 6rem 4rem;">
-<div style="max-width:1100px; margin:0 auto;">
-  <p class="section-label reveal">05 — Experience</p>
-  <h2 class="section-title reveal">Previous Roles</h2>
+<div id="experience" style="background:var(--cream);padding:6rem 4rem;">
+<div style="max-width:1100px;margin:0 auto;">
+  <p class="section-label">05 — Experience</p>
+  <h2 class="section-title">Previous Roles</h2>
 
-  <!-- FintechPro -->
-  <div class="exp-block reveal">
+  <div class="exp-block">
     <div class="exp-header">
-      <div>
-        <div class="exp-company">FintechPro Dublin</div>
-        <div class="exp-role">Accounting Trainee — Intern</div>
-      </div>
+      <div><div class="exp-company">FintechPro Dublin</div><div class="exp-role">Accounting Trainee — Intern</div></div>
       <div class="exp-date">Dec 2025 — Feb 2026 · Dublin, Ireland</div>
     </div>
     <div class="exp-tabs">
-      <button class="tab-btn active" onclick="switchTab(this, 'ftp-resp')">Primary Responsibilities</button>
-      <button class="tab-btn" onclick="switchTab(this, 'ftp-proj')">Specific Contributions</button>
-      <button class="tab-btn" onclick="switchTab(this, 'ftp-mission')">Contribution to Mission</button>
-      <button class="tab-btn" onclick="switchTab(this, 'ftp-skills')">Skills Developed</button>
+      <button class="tab-btn active" onclick="switchTab(this,'ftp-resp')">Primary Responsibilities</button>
+      <button class="tab-btn" onclick="switchTab(this,'ftp-proj')">Specific Contributions</button>
+      <button class="tab-btn" onclick="switchTab(this,'ftp-mission')">Contribution to Mission</button>
+      <button class="tab-btn" onclick="switchTab(this,'ftp-skills')">Skills Developed</button>
     </div>
-    <div id="ftp-resp" class="tab-content active">
-      <ul class="exp-list">
-        <li>Managed end-to-end bookkeeping across multiple client accounts — invoice processing, general ledger maintenance, and bank reconciliations using Dext and BrightBooks, working directly under a Senior FCCA Partner.</li>
-        <li>Accumulated and analysed financial information for the preparation of financial statements and management accounts across a diverse client portfolio, ensuring accuracy and compliance with Irish accounting standards.</li>
-        <li>Engaged directly with clients to gather financial information, resolve queries, and ensure timely submission of returns with clarity and professionalism.</li>
-        <li>Maintained up-to-date knowledge of Irish tax and regulatory frameworks through active client work, senior mentorship, and self-directed learning.</li>
-      </ul>
-    </div>
-    <div id="ftp-proj" class="tab-content">
-      <ul class="exp-list">
-        <li>Prepared and filed Income Tax returns including Form 11 and Form 12, computing and applying tax credits and reliefs accurately — gaining full end-to-end understanding of the IT compliance cycle as it operates in an Irish accounting practice.</li>
-        <li>Supported financial statement preparation across multiple clients, ensuring completeness, accuracy, and alignment with Irish accounting standards.</li>
-        <li>Contributed to bank reconciliations and ledger maintenance for a portfolio of business clients, identifying and resolving discrepancies in a timely manner.</li>
-      </ul>
-    </div>
-    <div id="ftp-mission" class="tab-content">
-      <ul class="exp-list">
-        <li>Supported FintechPro's core mission of delivering accurate, compliant, and client-centred accounting services by maintaining high-quality bookkeeping and timely financial reporting across client accounts.</li>
-        <li>Contributed to client retention and satisfaction through professional, responsive communication and reliable delivery of financial documentation.</li>
-        <li>Helped maintain the firm's compliance standards by upholding Irish tax and regulatory requirements across all client engagements.</li>
-      </ul>
-    </div>
-    <div id="ftp-skills" class="tab-content">
-      <div class="skill-chips">
-        <span class="skill-chip">Dext</span>
-        <span class="skill-chip">BrightBooks</span>
-        <span class="skill-chip">General Ledger Maintenance</span>
-        <span class="skill-chip">Bank Reconciliation</span>
-        <span class="skill-chip">Form 11 & Form 12 Filing</span>
-        <span class="skill-chip">Irish Tax Compliance</span>
-        <span class="skill-chip">Financial Statement Preparation</span>
-        <span class="skill-chip">Client Communication</span>
-        <span class="skill-chip">Irish Accounting Standards</span>
-      </div>
-    </div>
+    <div id="ftp-resp" class="tab-content active"><ul class="exp-list">
+      <li>Managed end-to-end bookkeeping across multiple client accounts — invoice processing, general ledger maintenance, and bank reconciliations using Dext and BrightBooks, working directly under a Senior FCCA Partner.</li>
+      <li>Accumulated and analysed financial information for the preparation of financial statements and management accounts across a diverse client portfolio, ensuring accuracy and compliance with Irish accounting standards.</li>
+      <li>Engaged directly with clients to gather financial information, resolve queries, and ensure timely submission of returns with clarity and professionalism.</li>
+      <li>Maintained up-to-date knowledge of Irish tax and regulatory frameworks through active client work, senior mentorship, and self-directed learning.</li>
+    </ul></div>
+    <div id="ftp-proj" class="tab-content"><ul class="exp-list">
+      <li>Prepared and filed Income Tax returns including Form 11 and Form 12, computing and applying tax credits and reliefs accurately — gaining full end-to-end understanding of the IT compliance cycle as it operates in an Irish accounting practice.</li>
+      <li>Supported financial statement preparation across multiple clients, ensuring completeness, accuracy, and alignment with Irish accounting standards.</li>
+      <li>Contributed to bank reconciliations and ledger maintenance for a portfolio of business clients, identifying and resolving discrepancies in a timely manner.</li>
+    </ul></div>
+    <div id="ftp-mission" class="tab-content"><ul class="exp-list">
+      <li>Supported FintechPro's core mission of delivering accurate, compliant, and client-centred accounting services by maintaining high-quality bookkeeping and timely financial reporting across client accounts.</li>
+      <li>Contributed to client retention and satisfaction through professional, responsive communication and reliable delivery of financial documentation.</li>
+      <li>Helped maintain the firm's compliance standards by upholding Irish tax and regulatory requirements across all client engagements.</li>
+    </ul></div>
+    <div id="ftp-skills" class="tab-content"><div class="skill-chips">
+      <span class="skill-chip">Dext</span><span class="skill-chip">BrightBooks</span>
+      <span class="skill-chip">General Ledger Maintenance</span><span class="skill-chip">Bank Reconciliation</span>
+      <span class="skill-chip">Form 11 & Form 12 Filing</span><span class="skill-chip">Irish Tax Compliance</span>
+      <span class="skill-chip">Financial Statement Preparation</span><span class="skill-chip">Client Communication</span>
+    </div></div>
   </div>
 
-  <!-- Hyderabad Youth Assembly -->
-  <div class="exp-block reveal">
+  <div class="exp-block">
     <div class="exp-header">
-      <div>
-        <div class="exp-company">Hyderabad Youth Assembly</div>
-        <div class="exp-role">Chairperson</div>
-      </div>
+      <div><div class="exp-company">Hyderabad Youth Assembly</div><div class="exp-role">Chairperson</div></div>
       <div class="exp-date">Jul 2022 — Jul 2023 · Hyderabad, India</div>
     </div>
     <div class="exp-tabs">
-      <button class="tab-btn active" onclick="switchTab(this, 'hya-resp')">Primary Responsibilities</button>
-      <button class="tab-btn" onclick="switchTab(this, 'hya-proj')">Specific Contributions</button>
-      <button class="tab-btn" onclick="switchTab(this, 'hya-mission')">Contribution to Mission</button>
-      <button class="tab-btn" onclick="switchTab(this, 'hya-skills')">Skills Developed</button>
+      <button class="tab-btn active" onclick="switchTab(this,'hya-resp')">Primary Responsibilities</button>
+      <button class="tab-btn" onclick="switchTab(this,'hya-proj')">Specific Contributions</button>
+      <button class="tab-btn" onclick="switchTab(this,'hya-mission')">Contribution to Mission</button>
+      <button class="tab-btn" onclick="switchTab(this,'hya-skills')">Skills Developed</button>
     </div>
-    <div id="hya-resp" class="tab-content active">
-      <ul class="exp-list">
-        <li>Led coordination and resource allocation for 35+ initiatives within a 150-member team, ensuring operational efficiency and accountability across all projects.</li>
-        <li>Prepared financial reports and operational summaries for leadership, improving internal reporting efficiency and supporting stronger organisational decision-making.</li>
-        <li>Oversaw fundraising strategy and execution, generating €25K+ in 3 months to fund project-level initiatives.</li>
-      </ul>
-    </div>
-    <div id="hya-proj" class="tab-content">
-      <ul class="exp-list">
-        <li>Designed and implemented a financial reporting framework that improved transparency and reduced reporting delays across 35+ concurrent initiatives.</li>
-        <li>Directed a fundraising campaign that raised €25K+ within a 3-month window, including budgeting, donor engagement, and expense tracking across multiple projects.</li>
-        <li>Produced leadership-facing financial summaries that fed directly into strategic planning and resource allocation decisions.</li>
-      </ul>
-    </div>
-    <div id="hya-mission" class="tab-content">
-      <ul class="exp-list">
-        <li>Advanced the organisation's mission of youth-led civic impact by ensuring financial sustainability, operational structure, and transparent reporting that enabled 35+ community initiatives to run effectively.</li>
-        <li>Strengthened the organisation's credibility and donor confidence through clear, well-structured financial reporting and accountability at every level.</li>
-      </ul>
-    </div>
-    <div id="hya-skills" class="tab-content">
-      <div class="skill-chips">
-        <span class="skill-chip">Financial Reporting</span>
-        <span class="skill-chip">Budget Planning</span>
-        <span class="skill-chip">Fundraising Strategy</span>
-        <span class="skill-chip">Team Leadership</span>
-        <span class="skill-chip">Stakeholder Communication</span>
-        <span class="skill-chip">Resource Allocation</span>
-        <span class="skill-chip">Operational Reporting</span>
-      </div>
-    </div>
+    <div id="hya-resp" class="tab-content active"><ul class="exp-list">
+      <li>Led coordination and resource allocation for 35+ initiatives within a 150-member team, ensuring operational efficiency and accountability across all projects.</li>
+      <li>Prepared financial reports and operational summaries for leadership, improving internal reporting efficiency and supporting stronger organisational decision-making.</li>
+      <li>Oversaw fundraising strategy and execution, generating €25K+ in 3 months to fund project-level initiatives.</li>
+    </ul></div>
+    <div id="hya-proj" class="tab-content"><ul class="exp-list">
+      <li>Designed and implemented a financial reporting framework that improved transparency and reduced reporting delays across 35+ concurrent initiatives.</li>
+      <li>Directed a fundraising campaign that raised €25K+ within a 3-month window, including budgeting, donor engagement, and expense tracking across multiple projects.</li>
+      <li>Produced leadership-facing financial summaries that fed directly into strategic planning and resource allocation decisions.</li>
+    </ul></div>
+    <div id="hya-mission" class="tab-content"><ul class="exp-list">
+      <li>Advanced the organisation's mission of youth-led civic impact by ensuring financial sustainability, operational structure, and transparent reporting that enabled 35+ community initiatives to run effectively.</li>
+      <li>Strengthened the organisation's credibility and donor confidence through clear, well-structured financial reporting and accountability at every level.</li>
+    </ul></div>
+    <div id="hya-skills" class="tab-content"><div class="skill-chips">
+      <span class="skill-chip">Financial Reporting</span><span class="skill-chip">Budget Planning</span>
+      <span class="skill-chip">Fundraising Strategy</span><span class="skill-chip">Team Leadership</span>
+      <span class="skill-chip">Stakeholder Communication</span><span class="skill-chip">Resource Allocation</span>
+    </div></div>
   </div>
 
-  <!-- Street Cause -->
-  <div class="exp-block reveal">
+  <div class="exp-block">
     <div class="exp-header">
-      <div>
-        <div class="exp-company">Street Cause</div>
-        <div class="exp-role">Vice President</div>
-      </div>
+      <div><div class="exp-company">Street Cause</div><div class="exp-role">Vice President</div></div>
       <div class="exp-date">Jun 2021 — Jun 2022 · Hyderabad, India</div>
     </div>
     <div class="exp-tabs">
-      <button class="tab-btn active" onclick="switchTab(this, 'sc-resp')">Primary Responsibilities</button>
-      <button class="tab-btn" onclick="switchTab(this, 'sc-proj')">Specific Contributions</button>
-      <button class="tab-btn" onclick="switchTab(this, 'sc-mission')">Contribution to Mission</button>
-      <button class="tab-btn" onclick="switchTab(this, 'sc-skills')">Skills Developed</button>
+      <button class="tab-btn active" onclick="switchTab(this,'sc-resp')">Primary Responsibilities</button>
+      <button class="tab-btn" onclick="switchTab(this,'sc-proj')">Specific Contributions</button>
+      <button class="tab-btn" onclick="switchTab(this,'sc-mission')">Contribution to Mission</button>
+      <button class="tab-btn" onclick="switchTab(this,'sc-skills')">Skills Developed</button>
     </div>
-    <div id="sc-resp" class="tab-content active">
-      <ul class="exp-list">
-        <li>Managed and monitored budgets exceeding €130K across 80+ projects, implementing financial tracking controls and governance procedures.</li>
-        <li>Prepared budget summaries and financial updates for senior stakeholders, delivering transparent and timely reporting that directly supported better decision-making at leadership level.</li>
-        <li>Implemented governance controls that reduced discrepancies and maintained full financial accountability across all projects.</li>
-      </ul>
-    </div>
-    <div id="sc-proj" class="tab-content">
-      <ul class="exp-list">
-        <li>Built and maintained a financial tracking system across 80+ concurrent projects, improving expenditure monitoring and reducing budget discrepancies organisation-wide.</li>
-        <li>Introduced governance procedures for expense sign-off and reporting cycles, creating greater accountability at project level.</li>
-        <li>Delivered regular financial updates to senior leadership, translating complex budget data into clear, actionable summaries.</li>
-      </ul>
-    </div>
-    <div id="sc-mission" class="tab-content">
-      <ul class="exp-list">
-        <li>Enabled Street Cause to scale its social impact across 80+ projects by ensuring that financial controls, accountability, and reporting kept pace with organisational growth.</li>
-        <li>Safeguarded organisational funds and donor trust through rigorous budget management, governance, and transparent reporting — directly supporting the mission to deliver meaningful community outcomes.</li>
-      </ul>
-    </div>
-    <div id="sc-skills" class="tab-content">
-      <div class="skill-chips">
-        <span class="skill-chip">Budget Management (€130K+)</span>
-        <span class="skill-chip">Financial Governance</span>
-        <span class="skill-chip">Expenditure Monitoring</span>
-        <span class="skill-chip">Stakeholder Reporting</span>
-        <span class="skill-chip">Multi-project Oversight</span>
-        <span class="skill-chip">Accountability Controls</span>
-        <span class="skill-chip">Leadership</span>
-      </div>
-    </div>
+    <div id="sc-resp" class="tab-content active"><ul class="exp-list">
+      <li>Managed and monitored budgets exceeding €130K across 80+ projects, implementing financial tracking controls and governance procedures.</li>
+      <li>Prepared budget summaries and financial updates for senior stakeholders, delivering transparent and timely reporting that directly supported better decision-making at leadership level.</li>
+      <li>Implemented governance controls that reduced discrepancies and maintained full financial accountability across all projects.</li>
+    </ul></div>
+    <div id="sc-proj" class="tab-content"><ul class="exp-list">
+      <li>Built and maintained a financial tracking system across 80+ concurrent projects, improving expenditure monitoring and reducing budget discrepancies organisation-wide.</li>
+      <li>Introduced governance procedures for expense sign-off and reporting cycles, creating greater accountability at project level.</li>
+      <li>Delivered regular financial updates to senior leadership, translating complex budget data into clear, actionable summaries.</li>
+    </ul></div>
+    <div id="sc-mission" class="tab-content"><ul class="exp-list">
+      <li>Enabled Street Cause to scale its social impact across 80+ projects by ensuring that financial controls, accountability, and reporting kept pace with organisational growth.</li>
+      <li>Safeguarded organisational funds and donor trust through rigorous budget management, governance, and transparent reporting.</li>
+    </ul></div>
+    <div id="sc-skills" class="tab-content"><div class="skill-chips">
+      <span class="skill-chip">Budget Management (€130K+)</span><span class="skill-chip">Financial Governance</span>
+      <span class="skill-chip">Expenditure Monitoring</span><span class="skill-chip">Stakeholder Reporting</span>
+      <span class="skill-chip">Multi-project Oversight</span><span class="skill-chip">Leadership</span>
+    </div></div>
   </div>
-
 </div>
 </div>
 
-<!-- PROJECTS -->
-<div id="projects" style="background:var(--navy); padding: 6rem 0;">
+<div id="projects" style="background:var(--navy);padding:6rem 0;">
 <div class="proj-inner">
-  <p class="section-label reveal">06 — Projects</p>
-  <h2 class="section-title reveal">Work in the field</h2>
-
-  <div class="project-card reveal">
+  <p class="section-label" style="color:var(--gold-light);">06 — Projects</p>
+  <h2 class="section-title" style="color:var(--white);">Work in the field</h2>
+  <div class="project-card">
     <p class="proj-label">MSc Practicum Project · DCU 2025</p>
     <h3 class="proj-title">Chirp Family — Investor Research & €20M Series A Strategy</h3>
     <div class="proj-sections">
-      <div class="proj-section">
-        <h4>Project Description</h4>
-        <p>Conducted in-depth financial analysis and investor segmentation for Chirp Family as part of the DCU MSc practicum. The project aimed to identify and profile the most strategically aligned investors globally to support a €20M Series A fundraising campaign across four international regions.</p>
-      </div>
-      <div class="proj-section">
-        <h4>Solution</h4>
-        <p>Analysed 269+ investors across four global regions using Crunchbase and PitchBook, segmenting by funding stage, ticket size, and thematic alignment. Built Tableau dashboards to visualise complex investor datasets and developed tailored financial summaries and risk management frameworks for four distinct investor profiles, with SMART metrics guiding expansion into 24 markets.</p>
-      </div>
-      <div class="proj-section">
-        <h4>Conclusion</h4>
-        <p>Delivered a comprehensive, data-driven investor strategy that gave Chirp Family a structured and credible roadmap for their Series A raise. The outputs — dashboards, investor profiles, and risk frameworks — translated financial complexity into clear, stakeholder-ready recommendations that directly supported global expansion planning.</p>
-      </div>
+      <div class="proj-section"><h4>Project Description</h4><p>Conducted in-depth financial analysis and investor segmentation for Chirp Family as part of the DCU MSc practicum, aimed at identifying the most strategically aligned investors globally to support a €20M Series A fundraising campaign across four international regions.</p></div>
+      <div class="proj-section"><h4>Solution</h4><p>Analysed 269+ investors across four global regions using Crunchbase and PitchBook, segmenting by funding stage, ticket size, and thematic alignment. Built Tableau dashboards and developed tailored financial summaries and risk frameworks for four investor profiles, with SMART metrics guiding expansion into 24 markets.</p></div>
+      <div class="proj-section"><h4>Conclusion</h4><p>Delivered a data-driven investor strategy giving Chirp Family a structured roadmap for their Series A raise. Dashboards, investor profiles, and risk frameworks translated financial complexity into clear, stakeholder-ready recommendations supporting global expansion planning.</p></div>
     </div>
     <div class="proj-tags">
-      <span class="proj-tag">Crunchbase</span>
-      <span class="proj-tag">PitchBook</span>
-      <span class="proj-tag">Tableau</span>
-      <span class="proj-tag">Investor Segmentation</span>
-      <span class="proj-tag">Financial Analysis</span>
-      <span class="proj-tag">Risk Management</span>
-      <span class="proj-tag">Series A Strategy</span>
-      <span class="proj-tag">Global Markets</span>
+      <span class="proj-tag">Crunchbase</span><span class="proj-tag">PitchBook</span>
+      <span class="proj-tag">Tableau</span><span class="proj-tag">Investor Segmentation</span>
+      <span class="proj-tag">Financial Analysis</span><span class="proj-tag">Risk Management</span>
+      <span class="proj-tag">Series A Strategy</span><span class="proj-tag">Global Markets</span>
     </div>
   </div>
 </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-name">Sania Mohammad</div>
   <div class="footer-links">
-    <a href="/cdn-cgi/l/email-protection#b1c2d0dfd8d0dcded9d0dcdcd0d582808183f1d6dcd0d8dd9fd2dedc">Email</a>
+    <a href="mailto:saniamohammad3102@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/sania-mohammad/" target="_blank">LinkedIn</a>
     <a href="#hero">Back to Top</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Tab switching
+<script>
   function switchTab(btn, contentId) {
     const block = btn.closest('.exp-block');
     block.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -724,6 +347,6 @@
     btn.classList.add('active');
     document.getElementById(contentId).classList.add('active');
   }
-
-  // Scroll reveal
-  con
+</script>
+</body>
+</html>
